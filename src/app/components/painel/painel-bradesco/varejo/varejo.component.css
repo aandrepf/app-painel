@@ -1,0 +1,102 @@
+.row {
+  margin: 0;
+}
+.painel237-wpr {
+  background-image: url('./../../../../../assets/bg-horizontal-new.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin: -25px -30px;
+  padding: 98px 38px 100px 38px;
+}
+.bl-now.col-sm-12 {
+  padding: 0;
+}
+.bl-senha {
+  padding: 0;
+  max-width: 784px;
+  margin-right: 30px;
+}
+.bl-local {
+  padding: 0;
+  min-width: 475px;
+  margin: 0;
+}
+h3.title-senha {
+  font-family: gilroyEB, Arial, Helvetica, sans-serif;
+  font-size: 106px;
+  line-height: 76px;
+}
+h3.title-caixa {
+  font-family: gilroyEB, Arial, Helvetica, sans-serif;
+  font-size: 96px;
+  line-height: 76px;
+}
+.box-senha, .box-guiche {
+  margin: 14px 0 -16px;
+  min-height: 480px;
+  background: rgba(255,255,255,1);
+  /*background: rgba(227,23,61,1);
+  border-radius: 0px 78px;
+  background: -moz-radial-gradient(center, ellipse cover, rgba(227,23,61,1) 0%, rgba(167,8,40,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(227,23,61,1)), color-stop(100%, rgba(167,8,40,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(227,23,61,1) 0%, rgba(167,8,40,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(227,23,61,1) 0%, rgba(167,8,40,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(227,23,61,1) 0%, rgba(167,8,40,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(227,23,61,1) 0%, rgba(167,8,40,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3173d', endColorstr='#a70828', GradientType=1 );*/
+}
+.box-senha {
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 85%, 85% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 85%, 85% 100%, 0% 100%);
+}
+.box-guiche {
+  -webkit-clip-path: polygon(0% 0%, 100% 0, 100% 85%, 75% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 85%, 75% 100%, 0% 100%);
+}
+p.text-senha {
+  font-size: 225px;
+  font-family: gilroyB;
+  text-align: center;
+  line-height: 480px;
+  margin-left: -2px;
+  color: rgba(227,23,61,1);
+  /*color: #ffffff;*/
+}
+
+p.text-guiche {
+  font-size: 258px;
+  font-family: gilroyB;
+  text-align: center;
+  line-height: 480px;
+  margin-left: -2px;
+  color: rgba(227,23,61,1);
+  /*color: #ffffff;*/
+}
+
+
+@media (min-width: 1920px) {
+  .painel237-wpr {
+    padding: 168px 78px 178px 78px;}
+  .bl-senha {
+    max-width: 1024px;
+  }
+  .bl-local {
+    min-width: 705px;
+  }
+  h3.title-senha, h3.title-caixa {
+    font-size: 136px;
+    line-height: 106px;
+  }
+  .box-senha, .box-guiche {
+    margin: 34px 0 -16px;
+    min-height: 600px;
+  }
+  p.text-senha {
+    font-size: 295px;
+    line-height: 610px;
+  }
+  p.text-guiche {
+    font-size: 318px;
+    line-height: 610px;
+  }
+}

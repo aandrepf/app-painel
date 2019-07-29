@@ -1,0 +1,107 @@
+h3 {
+  font-family: Helvetica, sans-serif;
+  font-size: 5.5rem;
+  font-weight: 400;
+}
+p {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+}
+.row {
+  margin: 0;
+}
+.painel33-wpr {
+  margin: -25px -30px;
+}
+/* ESTILOS SENHAS CHAMADAS */
+.bl-now {
+  background-color: #B40001;
+  padding-top: 75px;
+  padding-bottom: 80px;
+}
+h3.title-senha {
+  margin: 0 40px 0;
+}
+h3.title-caixa {
+  margin: 0;
+  text-align: center;
+}
+p.text-senha, p.text-caixa {
+  font-size: 20rem;
+  font-weight: 700;
+  line-height: 25rem;
+  margin: 0 28px 0;
+}
+p.text-caixa {
+  text-align: center;
+}
+
+/* ESTILO PROXIMAS SENHAS */
+.bl-next {
+  background-color: #000000;
+  padding: 47px 60px 0;
+  height: 420px;
+}
+p.title-next {
+  font-size: 4.5rem;
+  line-height: 4.5rem;
+}
+table tr td {
+  font-size: 9.5rem;
+  line-height: 13.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ESTILOS PAINEL COM FILA UNICA */
+.content-fu {
+  text-align: center;
+}
+.bl-now-fu {
+  background-color: #cb0000!important;
+  padding: 60px 0;
+}
+.bl-next-fu {
+  background-color: #000000;
+  padding: 66px 60px;
+}
+h3.title-senha-fu {
+  font-weight: 700;
+  font-size: 11.5rem;
+  line-height: 31rem;
+  position: relative;
+  left: -5px;
+}
+p.subtitle-senha-fu {
+  font-size: 13rem;
+  line-height: 11rem;
+  font-weight: 700;
+  position: relative;
+  left: 10px;
+}
+p.title-next-fu {
+  font-size: 13.5rem;
+  line-height: 21.3rem;
+  font-weight: 700;
+}
+@media (min-width: 1200px) and (max-width: 1367px) {
+  h3 {font-size: 4rem;}
+  .bl-now {padding-bottom: 51px;}
+  h3.title-caixa {margin: 0;text-align: center;}
+  p.text-senha, p.text-caixa {font-size: 14rem;line-height: 18rem;}
+  .bl-next {padding: 15px 60px 0;height: 278px;}
+  p.title-next {font-size: 3.5rem;line-height: 4.9rem;}
+  table tr td {font-size: 6.5rem;line-height: 9.5rem;padding: 0;}
+  .bl-now-fu {padding: 27px 0;}
+  .bl-next-fu {padding: 15px 60px;}
+  h3.title-senha-fu {
+    font-weight: 700;
+    font-size: 10.4rem;
+    line-height: 21rem;
+  }
+  p.title-next-fu {
+    font-size: 10.5rem;
+    line-height: 21.3rem;
+    font-weight: 700;
+  }
+}

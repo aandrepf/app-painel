@@ -1,0 +1,53 @@
+<div class="painel-gerencial-wpr">
+
+  <div class="col col-2 col-brand">
+    <div class="painel-infos-extras">
+      <div class="col col-12 col-brand-image">
+        <img src="./assets/logo.svg" alt="Bradesco Mobile" title="Bradesco Mobile">
+      </div>
+      <div class="col col-12 col-atualizacao">
+        Ultima atualização <br> <span class="senhas-length">{{ data | date:'HH:mm:ss' }}</span>
+      </div>
+      <div class="col col-12 col-qdtClientes">
+        Quantidade de clientes em espera <br> <span class="senhas-length">{{ painelGerencial.senhas.length }}</span>
+      </div>
+      <div class="col col-12 col-tme">
+        Tempo médio<br> de espera <br> <span class="senhas-length">{{ painelGerencial.tme }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col col-10 col-list">
+    <div *ngIf="contentPainel !== 0;else semCliente">
+      <ng-container *ngFor="let senha of senhaSort | paginate: config;let i = index">
+        <div class="col-sm-12 info-list-user">
+          <div class="col col-sm-12 col-te">
+            <p [style.color]="corEspera(senha.cor)">
+              {{ tempoFormatado[i] }}
+            </p>
+          </div>
+          <div class="col col-sm-12 col-prioritario">
+            <i class="fas fa-wheelchair" *ngIf="senha.isPrioritario"></i>
+          </div>
+          <div class="col col-sm-12 col-details">
+            <!--i class="fas fa-user-circle">{{ 'file:///home/bluetooth/fotos/' + senha.senhaUsada + '.png' }}</i-->
+            <img src="{{ 'file:///home/bluetooth/fotos/' + senha.senhaUsada + '.png' }}" width="100px" (error)="updateUrl($event)" [style.border]="corTempoEspera(senha.cor)">
+          </div>
+          <div class="col col-sm-12 col-nomeUsuario">
+            <p><strong>{{ senha.nomeUsuario | truncar }}</strong></p>
+          </div>
+          <div class="col col-sm-12 col-catBrand">
+            <p><img class="brand-{{ senha.nomeategoria.split(' ')[1].toLowerCase() }}" src="{{ './assets/' + senha.nomeategoria.split(' ')[1].toLowerCase() + 'b.png' }}" alt=""></p>
+          </div>
+          <div class="col col-sm-12 col-nomeGerente">
+            <p><strong>{{ senha.nomeGerente | truncar }}</strong></p>
+          </div>
+        </div>
+      </ng-container>
+      <pagination-controls [hidden]="true" (pageChange)="config.currentPage = $event" class="my-pagination"></pagination-controls>
+    </div>
+    <ng-template #semCliente>
+      <h1 class="info-no-cliente">AGUARDANDO ENTRADA DE NOVOS CLIENTES</h1>
+    </ng-template>
+  </div>
+</div>

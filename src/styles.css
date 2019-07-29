@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+* { cursor: none!important; }
+html {
+    height: 100%;
+    *overflow: hidden;
+    cursor: none!important;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=), none;
+}
+body {
+    background-color: #212121;
+    color: #ffffff;
+    height: 100%;
+    overflow: hidden;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=), none;
+
+}
+body::selection { background: transparent; }
+body::-moz-selection { background: transparent; }
+.loading-text {
+  top: 60%!important;
+  z-index: 99999!important;
+  width: 100%;
+  text-align: center;
+}

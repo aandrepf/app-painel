@@ -1,0 +1,37 @@
+<!--PROXIMA SENHA-->
+<div class="row proxima-senha-wpr">
+  <div class="col-sm-12 proxima-senha-main">
+    <!--p class="text-proxima-senha" *ngIf="painelItau.senha0">
+      proxima senha <span class="num-proxima-senha">{{ painelItau.senha0 }}</span>
+    </p
+    <p class="text-proxima-senha" *ngIf="!painelItau.senha0">seja bem-vindo!</p-->
+      <p class="text-proxima-senha">seja bem-vindo!</p>
+  </div>
+</div>
+
+<div class="row senha-atual-wpr">
+  <!--SENHA CHAMADA-->
+  <div class="col-sm-12 col-xl-7 senha-atual-main">
+    <p class="text-senha-atual" [@pulse]="pulse">{{ painelItau.dadosSenha.senha }}<br><small>{{ painelItau.dadosSenha.tipoCaixa }} {{ painelItau.dadosSenha.caixa }}</small></p>
+  </div>
+
+  <!--LISTA DE SENHAS QUE JÁ FORAM CHAMADAS-->
+  <div class="col-sm-12 col-xl-5 senha-atendida-main">
+    <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">últimas<br>senhas</th>
+            <th scope="col">local</th>
+            <th scope="col">posição</th>
+          </tr>
+        </thead>
+        <tbody [@zoomIn]="zoomIn">
+          <tr *ngFor="let ultimasSenhas of painelItau.ultimaSenhas">
+            <td>{{ ultimasSenhas.senha }}</td>
+            <td>{{ ultimasSenhas.tipoCaixa }}</td>
+            <td>{{ ultimasSenhas.caixa }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

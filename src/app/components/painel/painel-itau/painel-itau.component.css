@@ -1,0 +1,115 @@
+.row {
+  margin: 0;
+}
+.proxima-senha-main {
+  background-color: #353535;
+  padding: 50px 0;
+  border-radius: 60px;
+  min-height: 223px;
+  display: flex;
+  align-items: center;
+}
+p.text-proxima-senha {
+  margin: 0;
+  font-size: 75px;
+  line-height: 85px;
+  text-align: center;
+  letter-spacing: 5px;
+  width: 100%;
+}
+span.num-proxima-senha {
+  position: relative;
+  font-size: 130px;
+  line-height: 0px;
+  font-weight: 700;
+  top: 20px;
+}
+.senha-atual-main {
+  background-color: #ec7000;
+  margin: 25px 15px 0 0;
+  padding: 0;
+  border-radius: 60px;
+  text-align: center;
+  max-width: 57%!important;
+  min-height: 780px;
+  display: flex;
+  align-items: center;
+}
+.text-senha-atual {
+  width: 80%;
+  font-size: 270px;
+  line-height: 120px;
+  font-weight: 700;
+  margin: 0 auto;
+}
+.small, small {
+  font-size: 35%!important;
+  font-weight: 400;
+}
+.senha-atendida-main {
+  background-color: #3a3a3a;
+  margin: 25px 0 0 9px;
+  padding: 0 15px;
+  border-radius: 60px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.table-borderless thead th {
+  color: #d7d7d7;
+  font-weight: 400;
+  font-size: 40px;
+  width: 20%;
+  line-height: 43px;
+}
+.table-borderless td {
+  width: 36%;
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 120px;
+}
+.info-conectado-painel {
+  padding: 0;
+  font-size: 40px;
+  position: fixed;
+  bottom: 0px;
+  left: 15px;
+  opacity: 0.6;
+}
+@media (min-width: 1200px) and (max-width: 1367px) {
+  .proxima-senha-main {padding: 20px 0;min-height: 143px;}
+  p.text-proxima-senha {font-size: 60px;line-height: 62px;}
+  .senha-atual-main {margin: 25px 6px 0 0;min-height: 550px;}
+  .text-senha-atual {width: 100%;font-size: 170px;line-height: 100px;}
+  .table-borderless thead th {font-size: 37px;line-height: 40px;}
+  .table-borderless td {font-size: 42px;line-height: 45px;}
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .proxima-senha-main {padding: 20px 0;border-radius: 20px;min-height: 123px;}
+  p.text-proxima-senha {font-size: 65px;line-height: 67px;}
+  .senha-atual-main {min-width: 100%!important;border-radius: 20px;min-height: 470px;}
+  .text-senha-atual {width: 100%;font-size: 210px;line-height: 80px;}
+  .senha-atendida-main {margin-left: 0px;border-radius: 20px;}
+  .table-borderless thead th {font-size: 35px;line-height: 38px;}
+  .table-borderless td {font-size: 55px;line-height: 60px;}
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .proxima-senha-main {padding: 0;border-radius: 10px;min-height: 93px;}
+  p.text-proxima-senha {font-size: 45px;line-height: 47px;}
+  .senha-atual-main {min-width: 100%!important;border-radius: 10px;min-height: 515px;}
+  .text-senha-atual {width: 100%;font-size: 170px;line-height: 60px;}
+  .senha-atendida-main {margin-left: 0px;padding: 10px 15px;border-radius: 10px;}
+  .table-borderless thead th {font-size: 35px;line-height: 38px;}
+  .table-borderless td {font-size: 45px;line-height: 50px;}
+}
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .proxima-senha-main {padding: 0;border-radius: 5px;min-height: 93px;}
+  p.text-proxima-senha {font-size: 25px;line-height: 27px;}
+  .senha-atual-main {min-width: 100%!important;margin: 25px 0 0 0;border-radius: 5px;min-height: 440px;}
+  .text-senha-atual {width: 100%;font-size: 78px;line-height: 40px;}
+  .senha-atendida-main {margin-left: 0px;padding: 0px 5px;border-radius: 5px;}
+  .table-borderless thead th {font-size: 20px;line-height: 23px;}
+  .table-borderless td {font-size: 27px;line-height: 90px;}
+}

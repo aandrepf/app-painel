@@ -1,0 +1,7 @@
+<div class="content-painel" [ngSwitch]="painelBradesco.tipoDisplay">
+  <!--TEMPLATE PAINEL VAREJO-->
+  <app-varejo *ngSwitchCase="1" [painelVarejo]="painelBradesco"></app-varejo>
+
+  <!--TEMPLATE PAINEL GERENTE-->
+  <app-gerente *ngSwitchCase="2" [painelGerencial]="painelBradesco"></app-gerente>
+</div>

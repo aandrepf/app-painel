@@ -1,0 +1,56 @@
+{
+  "Senhas": [
+    {
+      "id": 1,
+      "isPrioritario": true,
+      "nomeGerente": "GERENTE 1851",
+      "nomeUsuario": "USER ONE",
+      "senhaUsada": "F0013",
+      "idAtendimento": 2016,
+      "nomeategoria": "GERENTE CLASSIC",
+      "usaLocucao": "N",
+      "tipoDisplay": "1",
+      "cor": 1,
+      "te": "00:15:00"
+    },
+    {
+      "id": 2,
+      "isPrioritario": true,
+      "nomeGerente": "GERENTE 1851",
+      "nomeUsuario": "USER TWO",
+      "senhaUsada": "F0013",
+      "idAtendimento": 2016,
+      "nomeategoria": "GERENTE CLASSIC",
+      "usaLocucao": "N",
+      "tipoDisplay": "1",
+      "cor": 1,
+      "te": "00:02:00"
+    },
+    {
+      "id": 3,
+      "isPrioritario": true,
+      "nomeGerente": "GERENTE 1851",
+      "nomeUsuario": "USER THREE",
+      "senhaUsada": "F0013",
+      "idAtendimento": 2016,
+      "nomeategoria": "GERENTE CLASSIC",
+      "usaLocucao": "N",
+      "tipoDisplay": "1",
+      "cor": 1,
+      "te": "00:05:00"
+    },
+    {
+      "id": 4,
+      "isPrioritario": true,
+      "nomeGerente": "GERENTE 1851",
+      "nomeUsuario": "USER FOUR",
+      "senhaUsada": "F0013",
+      "idAtendimento": 2016,
+      "nomeategoria": "GERENTE CLASSIC",
+      "usaLocucao": "N",
+      "tipoDisplay": "1",
+      "cor": 3,
+      "te": "01:25:00"
+    }
+  ]
+}

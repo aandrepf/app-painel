@@ -1,0 +1,182 @@
+@font-face {
+  font-family: gilroyB;
+  src: url('./../../../fonts/gilroy-bold-webfont.woff2') format('woff2'),
+       url('./../../../fonts/gilroy-bold-webfont.woff') format('woff'),
+       url('./../../../fonts/gilroy-bold-webfont.ttf') format('truetype');
+  font-weight: normal;font-style: normal;
+}
+@font-face {
+  font-family: gilroyEB;
+  src: url('./../../../fonts/gilroy-extrabold-webfont.woff2') format('woff2'),
+       url('./../../../fonts/gilroy-extrabold-webfont.woff') format('woff'),
+       url('./../../../fonts/gilroy-extrabold-webfont.ttf') format('truetype');
+  font-weight: normal;font-style: normal;
+}
+@font-face {
+  font-family: gilroyM;
+  src: url('./../../../fonts/gilroy-medium-webfont.woff2') format('woff2'),
+       url('./../../../fonts/gilroy-medium-webfont.woff') format('woff'),
+       url('./../../../fonts/gilroy-medium-webfont.ttf') format('truetype');
+  font-weight: normal;font-style: normal;
+}
+@font-face {
+  font-family: gilroyR;
+  src: url('./../../../fonts/gilroy-regular-webfont.woff2') format('woff2'),
+       url('./../../../fonts/gilroy-regular-webfont.woff') format('woff'),
+       url('./../../../fonts/gilroy-regular-webfont.ttf') format('truetype');
+  font-weight: normal;font-style: normal;
+}
+.painel-wpr {
+    padding: 25px 30px;
+    margin: 0;
+    min-height: 100%;
+}
+.info-conectado {
+  padding: 0;
+  font-size: 50px;
+  position: fixed;
+  bottom: -230px;
+  left: 0px;
+  opacity: 1;
+}
+span.version-info {
+  position: fixed;
+  left: 35px;
+  color: #ffffff;
+  font-size: 12px;
+  bottom: 5px;
+}
+@media (min-width: 600px) and (max-width: 767px) {
+  .painel-wpr {padding: 25px 10px;}
+}
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .painel-wpr {padding: 25px 10px;}
+}
+
+/* status conexão */
+.wifi {
+  z-index: 20000 !important;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 6px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 6px;
+  height: 12px;
+  left: 50%;
+  position: fixed;
+  bottom: -230px;
+  -webkit-transition: border-top-color 0.3s linear;
+  transition: border-top-color 0.3s linear;
+  width: 12px;
+  -webkit-transform: translate(-25%);
+          transform: translate(-25%);
+}
+.wifi.painel-icone {
+  position: fixed;
+  bottom: 0px!important;
+  left: 15px!important;
+}
+.wifi:before, .wifi:after {
+  content: '';
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 4.25532px solid transparent;
+  border-top-color: #ffffff;
+  position: absolute;
+  -webkit-transition: border-top-color 0.3s linear;
+  transition: border-top-color 0.3s linear;
+}
+.wifi:before {
+  border-radius: 12px;
+  height: 24px;
+  left: -12px;
+  top: -12px;
+  width: 24px;
+}
+.wifi:after {
+  border-radius: 36px;
+  height: 36px;
+  left: -18px;
+  top: -18px;
+  width: 36px;
+}
+.wifi.loading {
+  -webkit-animation: blink-1 1.5s linear infinite;
+          animation: blink-1 1.5s linear infinite;
+}
+.wifi.loading:before {
+  -webkit-animation: blink-2 1.5s linear infinite;
+          animation: blink-2 1.5s linear infinite;
+}
+.wifi.loading:after {
+  -webkit-animation: blink-3 1.5s linear infinite;
+          animation: blink-3 1.5s linear infinite;
+}
+.wifi.none:not(.loading) {
+  border-top-color: rgba(236, 116, 4, 0.4);
+}
+.wifi.none:not(.loading):before, .wifi.none:not(.loading):after {
+  border-top-color: rgba(236, 116, 4, 0.4);
+}
+.wifi.weak:not(.loading):before, .wifi.weak:not(.loading):after {
+  border-top-color: rgba(236, 116, 4, 0.4);
+}
+.wifi.medium:not(.loading):after {
+  border-top-color: rgba(236, 116, 4, 0.4);
+}
+@-webkit-keyframes blink-1 {
+  0% {
+    border-top-color: rgba(236, 116, 4, 0.4);
+  }
+  50%,
+      100% {
+    border-top-color: #ffffff;
+  }
+}
+@keyframes blink-1 {
+  0% {
+    border-top-color: rgba(236, 116, 4, 0.4);
+  }
+  50%,
+      100% {
+    border-top-color: #ffffff;
+  }
+}
+@-webkit-keyframes blink-2 {
+  0%,
+      100% {
+    border-top-color: #ffffff;
+  }
+  50% {
+    border-top-color: rgba(236, 116, 4, 0.4);
+  }
+}
+@keyframes blink-2 {
+  0%,
+      100% {
+    border-top-color: #ffffff;
+  }
+  50% {
+    border-top-color: rgba(236, 116, 4, 0.4);
+  }
+}
+@-webkit-keyframes blink-3 {
+  0%,
+      50% {
+    border-top-color: #ffffff;
+  }
+  100% {
+    border-top-color: rgba(236, 116, 4, 0.4);
+  }
+}
+@keyframes blink-3 {
+  0%,
+      50% {
+    border-top-color: #ffffff;
+  }
+  100% {
+    border-top-color: rgba(236, 116, 4, 0.4);
+  }
+}
+

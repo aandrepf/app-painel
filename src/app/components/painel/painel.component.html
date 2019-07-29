@@ -1,0 +1,33 @@
+<ngx-spinner bdOpacity = 0.9 bdColor = "#212121" size = "large" color = "#fff" type = "ball-clip-rotate-pulse" fullScreen = "true">
+  <!-- STATES DA APLICAÇÃO -->
+  <div [ngSwitch]="state" class="col-sm-12 info-states">
+    <p style="color: white;font-size: 35px;margin-top: 50px;" *ngSwitchCase="1">aguarde, iniciando aplicação...</p>
+    <p style="color: white;font-size: 35px;margin-top: 50px;" *ngSwitchCase="2">aguarde, conectando...</p>
+    <p style="color: white;font-size: 35px;margin-top: 50px;" *ngSwitchCase="3">aguardando chamada de senha...</p>
+    <p style="color: white;font-size: 35px;margin-top: 50px;" *ngSwitchCase="4">aguarde, desligando painel...</p>
+  </div>
+
+  <!--STATES 2 e 3: ANIMAÇÃO INDICANDO SE ESTÁ CONECTADO OU NÃO-->
+  <div class="col-sm-12 info-conectado" *ngIf="isConectado !== null">
+    <div class='wifi-signal'>
+      <div class="wifi {{ isConectado ? 'full' : 'loading' }}"></div>
+    </div>
+  </div>
+</ngx-spinner>
+
+<!--TELA DO PAINEL COM AS SENHAS-->
+<div class="col-sm-12 painel-wpr" *ngIf="painel" [ngSwitch]="painel.codcli">
+  <!--TEMPLATE PAINEL ITAU-->
+  <app-painel-itau *ngSwitchCase="341" [painelItau]="painel"></app-painel-itau>
+  <!--TEMPLATE PAINEL SANTANDER-->
+  <app-painel-santander *ngSwitchCase="33" [painelSantander]="painel"></app-painel-santander>
+  <!--TEMPLATE PAINEL BRADESCO-->
+  <app-painel-bradesco *ngSwitchCase="237" [painelBradesco]="painel"></app-painel-bradesco>
+  <!--INFORMATIVO DE CONEXÃO ENTRE EMISSOR E PAINEL NA TELA DE SENHAS-->
+  <div class="col-sm-12 info-conectado-painel" *ngIf="isConectado !== null">
+    <div class='wifi-signal'>
+      <div class="wifi painel-icone {{ isConectado ? 'full' : 'loading' }}"></div>
+      <span class="version-info">1.0.15</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="painel33-wpr" *ngIf="!painelSantander.isFilaUnica;else isFilaUnica">
+  <div class="bl-now col-sm-12">
+    <div class="row">
+      <div class="col-lg-8 bl-senha">
+        <h3 class="title-senha">SENHA</h3>
+        <p class="text-senha" [@flash]="flash">{{ painelSantander.senhaChamada }}</p>
+      </div>
+      <div class="col-lg-4 bl-local">
+        <h3 class="title-caixa">{{ painelSantander.tipoGuiche }}</h3>
+        <p class="text-caixa" [@flash]="flash">{{ painelSantander.numGuiche }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="bl-next col-sm-12">
+    <p class="title-next">Próximas senhas</p>
+    <table class="table table-borderless">
+        <tbody [@zoomIn]="zoomIn">
+          <tr>
+            <td>{{ painelSantander.senha0 }}</td>
+            <td>{{ painelSantander.senha1 }}</td>
+            <td>{{ painelSantander.senha2 }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+<ng-template #isFilaUnica>
+  <div class="painel33-wpr content-fu">
+    <div class="bl-now-fu col-sm-12 align-content-center">
+      <h3 class="title-senha-fu" [@zoomIn]="zoomIn">FILA ÚNICA</h3>
+    </div>
+    <div class="bl-next-fu col-sm-12">
+      <p class="title-next-fu" [@flash]="flash">{{ painelSantander.tipoGuiche }} {{ painelSantander.numGuiche }}</p>
+    </div>
+  </div>
+</ng-template>
