@@ -23,6 +23,7 @@ let cli = args(`
 });
 
 console.log('MODO DEBUG ATIVADO?', cli.flags.debug);
+console.log('IP/HOSTNAME DO TOTEM:', cli.flags.endpoint);
 
 app.on('ready', createWindow);
 
@@ -32,14 +33,6 @@ app.on('activate', () => {
   }
 });
 
-ipcMain.on('com', (e, data) => handleWebview(e, data));
-
-function handleWebview(e, p) {
-  if (p === 'tocar') {
-    // shell.openItem('C:/Program Files/aris/sga/display/ding.vbs');
-  }
-}
-
 function createWindow() {
   win = new BrowserWindow({
     // width: 1366, height: 768,
@@ -47,7 +40,7 @@ function createWindow() {
       fullscreen: true,
       frame: false
     */
-    kiosk: true
+   kiosk: true
   });
 
   // Previne o display de entrar em modo sleep
@@ -79,4 +72,27 @@ function createWindow() {
     win = null;
     app.quit();
   });
+
+  ipcMain.on('com', (e, p) => comunication(e, p));
+}
+
+function comunication(e, p) {
+  console.log('PARAMS', p);
+  switch (p.evt) {
+    case 'login':
+      win.setClosable(false);
+      break;
+    case 'logout':
+      win.setClosable(true);
+      break;
+    case 'startup':
+      e.returnValue = { endpoint: cli.flags.endpoint, ssl: Boolean(cli.flags.ssl), debug: cli.flags.debug };
+      break;
+    case 'notify':
+      console.log(p.data);
+    break;
+    case 'tocar':
+      shell.openItem('C:/Program Files/aris/sga/display/ding.vbs');
+      break;
+  }
 }

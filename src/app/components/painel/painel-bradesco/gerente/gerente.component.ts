@@ -76,7 +76,7 @@ export class GerenteComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit() {
-    const source = interval(40 * 1000);
+    const source = interval(400 * 1000);
     this._subGerencial = source.subscribe(
     () => {
       this.animate('pulse');
@@ -141,6 +141,6 @@ export class GerenteComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   updateUrl(evento) {
-    evento.target.src = './assets/user.svg';
+    evento.target.src = './assets/user1.svg';
   }
 }

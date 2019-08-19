@@ -12,13 +12,17 @@ import { GerenteComponent } from './painel-bradesco/gerente/gerente.component';
 import { NgxElectronModule } from 'ngx-electron';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TruncarPipe } from 'src/app/truncar.pipe';
+import { PrintComponent } from './print/print.component';
+import { InterfaceModule } from './interface/interface.module';
+import { InterfaceService } from './interface/interface.service';
 
 @NgModule({
   imports: [
     CommonModule,
     NgxSpinnerModule,
     NgxElectronModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    InterfaceModule
   ],
   declarations: [
     PainelComponent,
@@ -27,10 +31,12 @@ import { TruncarPipe } from 'src/app/truncar.pipe';
     PainelBradescoComponent,
     VarejoComponent,
     GerenteComponent,
-    TruncarPipe
+    TruncarPipe,
+    PrintComponent
   ],
   exports: [
     PainelComponent
-  ]
+  ],
+  providers: [InterfaceService]
 })
 export class PainelModule { }

@@ -9,12 +9,14 @@ import { trigger, transition, useAnimation } from '@angular/animations';
 import { pulse, zoomIn } from 'ng-animate';
 import { Router } from '@angular/router';
 import * as senhas from './../../global';
+import { InterfaceService } from './interface/interface.service';
 
 export enum ENOperation {
   iniciando = 1,
   conectando = 2,
   conectado = 3,
-  desligando = 4
+  desligando = 4,
+  interface = 5
 }
 
 @Component({
@@ -28,6 +30,7 @@ export enum ENOperation {
 })
 export class PainelComponent implements OnInit, OnDestroy {
   @Input() painel: Painelv2;
+  @Input() interfaceContent: any;
   private _subPainel: Subscription;
   // public painel;
   public pulse = false;
@@ -35,9 +38,11 @@ export class PainelComponent implements OnInit, OnDestroy {
   public timer;
   public attentionSeekers = ['pulse', 'zoomIn'];
   public isConectado = null;
+  public isInterface = false;
   public state;
 
-  constructor(private _api: ApiService, private spinner: NgxSpinnerService, private _route: Router, private electron: ElectronService) {}
+  constructor(
+    private _interface: InterfaceService, private _api: ApiService, private spinner: NgxSpinnerService, private _route: Router, private electron: ElectronService) {}
 
   ngOnInit() {
     localStorage.clear();
@@ -75,32 +80,36 @@ export class PainelComponent implements OnInit, OnDestroy {
       if(Object.prototype.toString.call(info) == '[object Object]') {
         this.state = ENOperation.conectado;
         this.isConectado = true;
-        if (chamou) {
-          if (info.hasOwnProperty('codcli') === true) {
-            setTimeout(() => {
-              this.painel = info;
-              localStorage.removeItem('tempos');
-              // if (this.painel) {
-                // this.electron.ipcRenderer.send('com', 'tocar');
-              // }
-              this.animate('pulse');
-              this.animate('zoomIn');
-              this.spinner.hide();
-            }, 2000);
-          }
-          console.log('STATE CONECTADO CHAMOU', this.state);
+
+        // VERIFICA SE TEM INTERFACE
+        if(info.hasOwnProperty('interface')) {
+          localStorage.setItem('chamou', 'true');
+          setTimeout(() => {
+            this.isInterface = true;
+            this.interfaceContent = info.interface;
+            this.spinner.hide();
+          }, 2000);
         } else {
-          localStorage.setItem('chamou', 'false');
-          if(info.hasOwnProperty('stx_xts')) {
-            this.isConectado = info.stx_xts;
-            this.state = ENOperation.conectado;
+          if (chamou) {
+            if (info.hasOwnProperty('codcli') === true) {
+              setTimeout(() => {
+                this.painel = info;
+                localStorage.removeItem('tempos');
+                // if (this.painel) {
+                  // this.electron.ipcRenderer.send('com', 'tocar');
+                // }
+                this.animate('pulse');
+                this.animate('zoomIn');
+                this.spinner.hide();
+              }, 2000);
+            }
+          } else {
+            localStorage.setItem('chamou', 'false');
+            if(info.hasOwnProperty('stx_xts')) {
+              this.isConectado = info.stx_xts;
+              this.state = ENOperation.conectado;
+            }
           }
-          if(info.hasOwnProperty('desligar')) {
-            this.painel = null;
-            this.isConectado = null;
-            this.state = ENOperation.desligando;
-          }
-          console.log('STATE CONECTADO NÃO CHAMOU', this.state);
         }
       }
     });

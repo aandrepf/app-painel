@@ -13,18 +13,13 @@ var cli = args("\n    app\n    Usage\n    $ app --arg\n    $ app --arg=value\n  
     }
 });
 console.log('MODO DEBUG ATIVADO?', cli.flags.debug);
+console.log('IP/HOSTNAME DO TOTEM:', cli.flags.endpoint);
 electron_1.app.on('ready', createWindow);
 electron_1.app.on('activate', function () {
     if (win === null) {
         createWindow();
     }
 });
-electron_1.ipcMain.on('com', function (e, data) { return handleWebview(e, data); });
-function handleWebview(e, p) {
-    if (p === 'tocar') {
-        // shell.openItem('C:/Program Files/aris/sga/display/ding.vbs');
-    }
-}
 function createWindow() {
     win = new electron_1.BrowserWindow({
         // width: 1366, height: 768,
@@ -56,5 +51,26 @@ function createWindow() {
         win = null;
         electron_1.app.quit();
     });
+    electron_1.ipcMain.on('com', function (e, p) { return comunication(e, p); });
+}
+function comunication(e, p) {
+    console.log('PARAMS', p);
+    switch (p.evt) {
+        case 'login':
+            win.setClosable(false);
+            break;
+        case 'logout':
+            win.setClosable(true);
+            break;
+        case 'startup':
+            e.returnValue = { endpoint: cli.flags.endpoint, ssl: Boolean(cli.flags.ssl), debug: cli.flags.debug };
+            break;
+        case 'notify':
+            console.log(p.data);
+            break;
+        case 'tocar':
+            electron_1.shell.openItem('C:/Program Files/aris/sga/display/ding.vbs');
+            break;
+    }
 }
 //# sourceMappingURL=main.js.map

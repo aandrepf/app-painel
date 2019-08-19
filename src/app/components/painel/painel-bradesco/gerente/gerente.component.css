@@ -57,9 +57,14 @@ h1.info-no-cliente {
   font-family: gilroyB;
   margin-top: 120px;
 }
+span.dia {
+  font-size: 25px!important;
+}
 span.senhas-length {
   font-size: 70px;
-  line-height: 85px;
+  line-height: 55px;
+  position: relative;
+  top: 10px;
 }
 .col-tme {
   margin-top: 94px;
@@ -94,7 +99,7 @@ span.tme {
   display: inline-block;
 }
 .col-te {
-  margin: -1px 7px 0;
+  margin: -2px 7px 0;
 }
 .col-te p {
   font-size: 23px;
@@ -124,18 +129,18 @@ span.init-timer {
   position: relative;
 }
 .col-details img {
-  border-radius: 50%;
-  width: 250px;
-  height: 250px;
+  border-radius: 20px;
+  width: 220px;
+  height: 220px;
   position: relative;
-  top: -34px;
+  top: 0px;
   left: 0px;
 }
 .col-nomeUsuario p {
   font-family: gilroyB, Arial, Helvetica, sans-serif;
   font-size: 37px;
   line-height: 39px;
-  margin: -9px 0 0;
+  margin: 15px 0 0;
   text-transform: uppercase;
 }
 .col-catBrand {
@@ -170,14 +175,21 @@ p.waiting {
   color: #cd0a2f !important;
 }
 
+.col.col-12.col-pagination {
+  margin: 120px -40px 0;
+  text-align: center;
+}
+
 @media screen and (max-width: 1366px) and (max-height: 768px)
 {
+  .painel-infos-extras {top:33px;}
   .painel-gerencial-wpr {height: 768px;}
   h1.info-no-cliente {font-size: 2.5rem;}
-  .col-atualizacao {font-size: 23px;line-height: 30px;margin-top:20px;}
+  .col-atualizacao {font-size: 22px;line-height: 30px;margin-top:20px;}
   .col-qdtClientes {font-size: 23px;line-height: 30px;margin-top:90px;}
-  .col-tme {margin-top: 74px;font-size: 23px;line-height: 29px;}
-  span.senhas-length {font-size: 56px;line-height: 65px;}
+  .col-tme {margin-top: 54px;font-size: 23px;line-height: 29px;}
+  span.senhas-length {font-size: 56px;line-height: 45px;}
+  span.dia { font-size: 20px!important; }
   .info-list-user {
     width: 323px;
     height: 352px;
@@ -188,6 +200,7 @@ p.waiting {
   .col-details img {
     width: 160px;
     height: 160px;
+    top: -15px;
   }
   .col-prioritario i {
     line-height: 27px;
@@ -203,6 +216,7 @@ p.waiting {
   .col-nomeUsuario p {
     font-size: 25px;
     line-height: 27px;
+    margin: 0;
   }
   .col-catBrand p img.brand-prime, .col-catBrand p img.brand-exclusive {
     width: 49%;
@@ -225,6 +239,9 @@ p.waiting {
   .col-nomeGerente p {
     font-size: 18px;
     line-height: 33px;
-    margin: 84px 0 0;
+    margin: 74px 0 0;
+  }
+  .col.col-12.col-pagination {
+    margin: 30px -35px 0;
   }
 }

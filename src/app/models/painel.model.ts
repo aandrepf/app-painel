@@ -30,6 +30,8 @@ export class Painelv2 {
   stx_xts: boolean;
   desligar: boolean;
   tme: string;
+  data: string;
+  hora:string;
 }
 
 export class DadoSenha {

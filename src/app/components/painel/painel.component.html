@@ -1,10 +1,9 @@
 <ngx-spinner bdOpacity = 0.9 bdColor = "#212121" size = "large" color = "#fff" type = "ball-clip-rotate-pulse" fullScreen = "true">
   <!-- STATES DA APLICAÇÃO -->
   <div [ngSwitch]="state" class="col-sm-12 info-states">
-    <p style="color: white;font-size: 35px;margin-top: 50px;" *ngSwitchCase="1">aguarde, iniciando aplicação...</p>
-    <p style="color: white;font-size: 35px;margin-top: 50px;" *ngSwitchCase="2">aguarde, conectando...</p>
-    <p style="color: white;font-size: 35px;margin-top: 50px;" *ngSwitchCase="3">aguardando chamada de senha...</p>
-    <p style="color: white;font-size: 35px;margin-top: 50px;" *ngSwitchCase="4">aguarde, desligando painel...</p>
+    <p class="spinner-state" *ngSwitchCase="1">aguarde, iniciando aplicação...</p>
+    <p class="spinner-state" *ngSwitchCase="2">aguarde, conectando...</p>
+    <p class="spinner-state" *ngSwitchCase="3">aguardando interação...</p>
   </div>
 
   <!--STATES 2 e 3: ANIMAÇÃO INDICANDO SE ESTÁ CONECTADO OU NÃO-->
@@ -27,7 +26,13 @@
   <div class="col-sm-12 info-conectado-painel" *ngIf="isConectado !== null">
     <div class='wifi-signal'>
       <div class="wifi painel-icone {{ isConectado ? 'full' : 'loading' }}"></div>
-      <span class="version-info">1.0.15</span>
+      <span class="version-info">1.4.17</span>
     </div>
   </div>
 </div>
+
+<!--INTERFACE EMISSORA SLAVE-->
+<div class="col-sm-12 tela-wpr" *ngIf="isInterface">
+  <app-interface [interface]="interfaceContent"></app-interface>
+</div>
+

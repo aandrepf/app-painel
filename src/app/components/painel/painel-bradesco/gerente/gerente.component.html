@@ -6,13 +6,17 @@
         <img src="./assets/logo.svg" alt="Bradesco Mobile" title="Bradesco Mobile">
       </div>
       <div class="col col-12 col-atualizacao">
-        Ultima atualização <br> <span class="senhas-length">{{ data | date:'HH:mm:ss' }}</span>
+        Ultima atualização: <br><span class="dia senhas-length">{{ painelGerencial.data }} as</span><br><span class="senhas-length">{{ painelGerencial.hora }}</span>
       </div>
       <div class="col col-12 col-qdtClientes">
         Quantidade de clientes em espera <br> <span class="senhas-length">{{ painelGerencial.senhas.length }}</span>
       </div>
       <div class="col col-12 col-tme">
         Tempo médio<br> de espera <br> <span class="senhas-length">{{ painelGerencial.tme }}</span>
+      </div>
+      <div class="col col-12 col-pagination">
+         Paginação <br>
+         <pagination-controls [hidden]="false" (pageChange)="config.currentPage = $event" class="my-pagination"  directionLinks="false"></pagination-controls>
       </div>
     </div>
   </div>
@@ -23,7 +27,7 @@
         <div class="col-sm-12 info-list-user">
           <div class="col col-sm-12 col-te">
             <p [style.color]="corEspera(senha.cor)">
-              {{ tempoFormatado[i] }}
+              {{ tempoFormatado[i] }} em espera
             </p>
           </div>
           <div class="col col-sm-12 col-prioritario">
@@ -34,17 +38,16 @@
             <img src="{{ 'file:///home/bluetooth/fotos/' + senha.senhaUsada + '.png' }}" width="100px" (error)="updateUrl($event)" [style.border]="corTempoEspera(senha.cor)">
           </div>
           <div class="col col-sm-12 col-nomeUsuario">
-            <p><strong>{{ senha.nomeUsuario | truncar }}</strong></p>
+            <p><strong>{{ senha.nomeUsuario | truncar:[18] }}</strong></p>
           </div>
           <div class="col col-sm-12 col-catBrand">
             <p><img class="brand-{{ senha.nomeategoria.split(' ')[1].toLowerCase() }}" src="{{ './assets/' + senha.nomeategoria.split(' ')[1].toLowerCase() + 'b.png' }}" alt=""></p>
           </div>
           <div class="col col-sm-12 col-nomeGerente">
-            <p><strong>{{ senha.nomeGerente | truncar }}</strong></p>
+            <p><strong>{{ senha.nomeGerente | truncar:[18] }}</strong></p>
           </div>
         </div>
       </ng-container>
-      <pagination-controls [hidden]="true" (pageChange)="config.currentPage = $event" class="my-pagination"></pagination-controls>
     </div>
     <ng-template #semCliente>
       <h1 class="info-no-cliente">AGUARDANDO ENTRADA DE NOVOS CLIENTES</h1>

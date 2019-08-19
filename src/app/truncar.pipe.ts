@@ -9,10 +9,15 @@ export class TruncarPipe {
 
     var firstName = separa[0];
     var lastName = separa.length > 1 ? separa[separa.length - 1] : '';
+    var nomeCompleto = firstName + ' ' + lastName;
 
-    return firstName + ' ' + lastName.trim();
-    /*let limitador = args.length > 0 ? parseInt(args[0], 10) : 10;
+    let limitador = args.length > 0 ? parseInt(args[0], 10) : 10;
     let trail = args.length > 1 ? args[1] : '...';
-    return value.length > limitador ? value.substring(0, limitador) + trail : value;*/
+
+    // return firstName + ' ' + lastName.trim();
+
+    console.log('VALOR', nomeCompleto, 'args', args, 'VALUE TAMANHO', nomeCompleto.length, 'LIMITADOR', limitador);
+
+    return nomeCompleto.length > limitador ? nomeCompleto.trim().substring(0, limitador) + trail : nomeCompleto.trim();
   }
 }

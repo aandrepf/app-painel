@@ -1,29 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-* { cursor: none!important; }
+@font-face {
+  font-family: gilroyB;
+  src: url('./fonts/gilroy-bold-webfont.woff2') format('woff2'),
+       url('./fonts/gilroy-bold-webfont.woff') format('woff'),
+       url('./fonts/gilroy-bold-webfont.ttf') format('truetype');
+  font-weight: normal;font-style: normal;
+}
+@font-face {
+  font-family: gilroyR;
+  src: url('./fonts/gilroy-regular-webfont.woff2') format('woff2'),
+       url('./fonts/gilroy-regular-webfont.woff') format('woff'),
+       url('./fonts/gilroy-regular-webfont.ttf') format('truetype');
+  font-weight: normal;font-style: normal;
+}
+* { *cursor: none!important; }
 html {
     height: 100%;
     *overflow: hidden;
-    cursor: none!important;
+    /*cursor: none!important;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=), none;
-}
+    */
+  }
 body {
     background-color: #212121;
     color: #ffffff;
     height: 100%;
     overflow: hidden;
-    -moz-user-select: none;
+    /*-moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=), none;
-
+    */
 }
 body::selection { background: transparent; }
 body::-moz-selection { background: transparent; }
@@ -32,4 +47,103 @@ body::-moz-selection { background: transparent; }
   z-index: 99999!important;
   width: 100%;
   text-align: center;
+}
+
+.body-interface {
+  background-image: url('./assets/images/bg-vertical.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 100%;
+  padding: 40px 0px 40px 40px;
+}
+
+.ngx-pagination {
+  margin: 5px 0 0 0px!important;
+  text-align: center!important;
+  padding: 0!important;
+}
+
+.ngx-pagination .current {
+  padding: 0px 5px!important;
+  background: #fff!important;
+  color: transparent!important;
+  cursor: none;
+  border: 3px solid #fff;
+  border-radius: 70px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: -2px;
+  opacity: 1;
+}
+.ngx-pagination li {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  color: transparent!important;
+  border: 3px solid #fff;
+  border-radius: 70px!important;
+  padding: 0px!important;
+  margin: 0 10px 0 0!important;
+  opacity: 0.45;
+}
+
+/* ITENS INTERFACE */
+.page-footer {
+  color: #ffffff;
+  display: block;
+  float: left;
+  width: 100%;
+}
+.presentation {
+  font-family: gilroyB;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+}
+.op-left {
+  width: 46%;
+  float: left;
+}
+.op-right {
+  width: 48%;
+  float: left;
+  margin-left: 25px;
+}
+.op-title {
+  font-family: gilroyB;
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+.op-description {
+  font-family: gilroyR;
+  font-size: 17px;
+}
+
+.black-overlay {
+  top: 0px!important;
+}
+
+
+@media screen and (min-width: 1920px) and (max-height: 1080px)
+{
+  .body-interface { background-image: url('./assets/bg-horizontal-new.jpg'); }
+  .presentation, .op-title { font-size: 28px; }
+  .op-description { font-size: 22px; }
+}
+@media screen and (min-width: 1366px) and (max-height: 768px) {
+  .black-overlay {
+    top: 0px!important;
+  }
+  .ngx-pagination .current {
+    width: 15px;
+    height: 15px;
+  }
+  .ngx-pagination li {
+    width: 17px;
+    height: 17px;
+  }
+  .body-interface {
+    background-image: url('./assets/bg-horizontal-new.jpg');
+  }
 }

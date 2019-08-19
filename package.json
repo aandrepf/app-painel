@@ -1,7 +1,7 @@
 {
   "name": "app-painel-sga",
   "productName": "Painel SGA",
-  "version": "1.0.0",
+  "version": "1.4.17",
   "description": "App Painel de Chamada do SGA",
   "homepage": "https://github.com/maximegris/angular-electron",
   "author": {
@@ -22,8 +22,8 @@
     "ng:serve:web": "npm run postinstall:web && ng serve -o",
     "electron:serve-tsc": "tsc -p tsconfig-serve.json",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
-    "electron:local": "npm run build:prod && electron .",
-    "electron:linux": "npm run build:prod && electron-builder build --linux --ia32",
+    "electron:local": "npm run build:prod && electron . --debug --endpoint=localhost",
+    "electron:linux": "npm run build:prod && electron-builder build --linux --armv7l",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
     "electron:mac": "npm run build:prod && electron-builder build --mac",
     "test": "npm run postinstall:web && ng test",
@@ -44,6 +44,7 @@
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
     "@types/socket.io-client": "^1.4.32",
+    "angular-user-idle": "^2.1.1",
     "bootstrap": "^4.2.1",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
