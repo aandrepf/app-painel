@@ -28,7 +28,6 @@ class Send {
 })
 export class PrintComponent implements OnInit, OnDestroy {
   private sub: Subscription;
-  private urlServer: string;
 
   public waiting = true;
   public senha = false;
@@ -42,7 +41,6 @@ export class PrintComponent implements OnInit, OnDestroy {
     private _api: ApiService,
     private _userIdle: UserIdleService,
     private _http: HttpClient) {}
-    private ticket: any;
 
   ngOnInit() {
     this.sub = this._active.params.subscribe(params => {

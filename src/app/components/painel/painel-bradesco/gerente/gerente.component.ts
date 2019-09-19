@@ -76,7 +76,7 @@ export class GerenteComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit() {
-    const source = interval(400 * 1000);
+    const source = interval(50 * 1000);
     this._subGerencial = source.subscribe(
     () => {
       this.animate('pulse');
@@ -88,7 +88,7 @@ export class GerenteComponent implements OnInit, OnChanges, OnDestroy {
           if (this.config.currentPage === this.totalR) {
             this.config.currentPage = 1;
           }
-        }, 20 * 1000); // em 20 segundos retorna para primeira lista
+        }, 25 * 1000); // em 20 segundos retorna para primeira lista
       } else {
         this.config.currentPage = 1;
       }

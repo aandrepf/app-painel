@@ -57,10 +57,9 @@ function createWindow() {
     })
   );
 
-  /* para painel em SO Windows
-    shell.openItem('C:Users/Desenvolvimento/Desktop/mouseclick.bat');
-    shell.openItem('C:Users/Desenvolvimento/Desktop/sound.vbs');
-  */
+    // para painel em SO Windows
+    // shell.openItem('C:/Program Files/aris/sga/display/mouseclick.bat');
+    // shell.openItem('C:/Program Files/aris/sga/display/sound.vbs');
 
   // abre o DEVTOOLS do Chrome
   if (cli.flags.debug){
@@ -92,6 +91,7 @@ function comunication(e, p) {
       console.log(p.data);
     break;
     case 'tocar':
+      shell.openItem('C:/Program Files/aris/sga/display/mouseclick.bat');
       shell.openItem('C:/Program Files/aris/sga/display/ding.vbs');
       break;
   }

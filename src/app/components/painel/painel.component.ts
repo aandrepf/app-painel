@@ -95,9 +95,9 @@ export class PainelComponent implements OnInit, OnDestroy {
               setTimeout(() => {
                 this.painel = info;
                 localStorage.removeItem('tempos');
-                // if (this.painel) {
-                  // this.electron.ipcRenderer.send('com', 'tocar');
-                // }
+                //if (this.painel) {
+                //  this.electron.ipcRenderer.send('com', 'tocar');
+                //}
                 this.animate('pulse');
                 this.animate('zoomIn');
                 this.spinner.hide();
