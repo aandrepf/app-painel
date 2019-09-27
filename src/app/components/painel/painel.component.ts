@@ -16,7 +16,8 @@ export enum ENOperation {
   conectando = 2,
   conectado = 3,
   desligando = 4,
-  interface = 5
+  interface = 5,
+  wating = 6
 }
 
 @Component({
@@ -60,6 +61,7 @@ export class PainelComponent implements OnInit, OnDestroy {
       this._api.getPainel();
 
       const info = JSON.parse(localStorage.getItem('info'));
+      const rede = JSON.parse(localStorage.getItem('rede'));
       const chamou = JSON.parse(localStorage.getItem('chamou'));
 
       // INICIANDO APLICAÇÃO
@@ -70,10 +72,17 @@ export class PainelComponent implements OnInit, OnDestroy {
       }
 
       // FASE DE CONEXÃO
-      if(Object.prototype.toString.call(info) == '[object Null]' && chamou === false) {
+      if(Object.prototype.toString.call(info) == '[object Null]' && chamou === false && rede === null) {
         this.state = ENOperation.conectando;
         this.isConectado = false;
         console.log('STATE CONECTANDO', this.state);
+      }
+
+      // FASE AGUARDANDO INTERAÇÃO
+      if(Object.prototype.toString.call(info) == '[object Null]' && rede === true) {
+        this.state = ENOperation.wating;
+        this.isConectado = true;
+        console.log('STATE AGUARDANDO', this.state);
       }
 
       // FASE DE CONECTADO e CHAMADA DE SENHA
@@ -92,16 +101,14 @@ export class PainelComponent implements OnInit, OnDestroy {
         } else {
           if (chamou) {
             if (info.hasOwnProperty('codcli') === true) {
+              this.painel = info;
+              localStorage.removeItem('tempos');
+              this.animate('pulse');
+              this.animate('zoomIn');
+              this.spinner.hide();
               setTimeout(() => {
-                this.painel = info;
-                localStorage.removeItem('tempos');
-                //if (this.painel) {
-                //  this.electron.ipcRenderer.send('com', 'tocar');
-                //}
-                this.animate('pulse');
-                this.animate('zoomIn');
-                this.spinner.hide();
-              }, 2000);
+                this.playAudio(this.painel.dadosSenha.senha, this.painel.dadosSenha.tipoCaixa, this.painel.dadosSenha.caixa);
+              }, 300);
             }
           } else {
             localStorage.setItem('chamou', 'false');
@@ -117,6 +124,39 @@ export class PainelComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if (this._subPainel !== undefined) { this._subPainel.unsubscribe(); }
+  }
+
+  playAudio(senha: string, tipoCaixa: string, posicao: string){
+    let audio = new Audio();
+    audio.src = './assets/!.mp3';
+    audio.defaultPlaybackRate = 1.2;
+    audio.load();
+    audio.play();
+    /*let cut = senha.split('');
+    let audio = new Audio();
+    let i = 0;
+    let playlist = [
+      "./assets/!.mp3",
+      "./assets/sounds/senha.mp3",
+      "./assets/sounds/"+cut[0]+".mp3",
+      "./assets/sounds/"+cut[1]+".mp3",
+      "./assets/sounds/"+cut[2]+".mp3",
+      "./assets/sounds/"+cut[3]+".mp3",
+      "./assets/sounds/"+cut[4]+".mp3"
+    ];
+    audio.addEventListener('ended', function () {
+      if(++i < playlist.length) {
+        i = i;
+      } else {
+        false;
+      }
+      audio.src = playlist[i];
+      audio.play();
+    }, true);
+    audio.src = playlist[0];
+    audio.defaultPlaybackRate = 1.2;
+    audio.play();*/
+
   }
 
   animate(name: string) {

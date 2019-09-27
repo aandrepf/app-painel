@@ -6,14 +6,16 @@ var url = require("url");
 var args = require('electron-args');
 // tslint:disable-next-line:prefer-const
 var win;
-var cli = args("\n    app\n    Usage\n    $ app --arg\n    $ app --arg=value\n    Options\n    --debug     modo debug [Default: false]\n    --ssl       protocolo de seguran\u00E7a [Default: false]\n    --endpoint  ip ou hostname do totem\n    ", {
+var cli = args("\n    app\n    Usage\n    $ app --arg\n    $ app --arg=value\n    Options\n    --debug     modo debug [Default: false]\n    --ssl       protocolo de seguran\u00E7a [Default: false]\n    --rede      se \u00E9 rede [Default: false]\n    --endpoint  ip ou hostname do totem\n    ", {
     default: {
         debug: false,
+        rede: false,
         ssl: false
     }
 });
 console.log('MODO DEBUG ATIVADO?', cli.flags.debug);
 console.log('IP/HOSTNAME DO TOTEM:', cli.flags.endpoint);
+console.log('PAINEL REDE?', cli.flags.rede);
 electron_1.app.on('ready', createWindow);
 electron_1.app.on('activate', function () {
     if (win === null) {
@@ -27,6 +29,7 @@ function createWindow() {
           fullscreen: true,
           frame: false
         */
+        resizable: false,
         kiosk: true
     });
     // Previne o display de entrar em modo sleep
@@ -39,8 +42,7 @@ function createWindow() {
         slashes: true,
     }));
     // para painel em SO Windows
-    // shell.openItem('C:/Program Files/aris/sga/display/mouseclick.bat');
-    // shell.openItem('C:/Program Files/aris/sga/display/sound.vbs');
+    electron_1.shell.openItem('C:/Program Files/aris/sga/display/mouseclick.bat');
     // abre o DEVTOOLS do Chrome
     if (cli.flags.debug) {
         win.webContents.openDevTools();
@@ -62,14 +64,10 @@ function comunication(e, p) {
             win.setClosable(true);
             break;
         case 'startup':
-            e.returnValue = { endpoint: cli.flags.endpoint, ssl: Boolean(cli.flags.ssl), debug: cli.flags.debug };
+            e.returnValue = { endpoint: cli.flags.endpoint, ssl: Boolean(cli.flags.ssl), debug: cli.flags.debug, rede: cli.flags.rede };
             break;
         case 'notify':
             console.log(p.data);
-            break;
-        case 'tocar':
-            electron_1.shell.openItem('C:/Program Files/aris/sga/display/mouseclick.bat');
-            electron_1.shell.openItem('C:/Program Files/aris/sga/display/ding.vbs');
             break;
     }
 }

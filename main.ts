@@ -13,17 +13,20 @@ let cli = args(`
     Options
     --debug     modo debug [Default: false]
     --ssl       protocolo de segurança [Default: false]
+    --rede      se é rede [Default: false]
     --endpoint  ip ou hostname do totem
     `,
     {
     default: {
         debug: false,
+        rede: false,
         ssl: false
     }
 });
 
 console.log('MODO DEBUG ATIVADO?', cli.flags.debug);
 console.log('IP/HOSTNAME DO TOTEM:', cli.flags.endpoint);
+console.log('PAINEL REDE?', cli.flags.rede);
 
 app.on('ready', createWindow);
 
@@ -40,6 +43,7 @@ function createWindow() {
       fullscreen: true,
       frame: false
     */
+   resizable: false,
    kiosk: true
   });
 
@@ -57,9 +61,8 @@ function createWindow() {
     })
   );
 
-    // para painel em SO Windows
-    // shell.openItem('C:/Program Files/aris/sga/display/mouseclick.bat');
-    // shell.openItem('C:/Program Files/aris/sga/display/sound.vbs');
+  // para painel em SO Windows
+  shell.openItem('C:/Program Files/aris/sga/display/mouseclick.bat');
 
   // abre o DEVTOOLS do Chrome
   if (cli.flags.debug){
@@ -85,14 +88,10 @@ function comunication(e, p) {
       win.setClosable(true);
       break;
     case 'startup':
-      e.returnValue = { endpoint: cli.flags.endpoint, ssl: Boolean(cli.flags.ssl), debug: cli.flags.debug };
+      e.returnValue = { endpoint: cli.flags.endpoint, ssl: Boolean(cli.flags.ssl), debug: cli.flags.debug, rede: cli.flags.rede };
       break;
     case 'notify':
       console.log(p.data);
     break;
-    case 'tocar':
-      shell.openItem('C:/Program Files/aris/sga/display/mouseclick.bat');
-      shell.openItem('C:/Program Files/aris/sga/display/ding.vbs');
-      break;
   }
 }

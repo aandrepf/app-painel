@@ -13,6 +13,7 @@ class IpcCom {
   endpoint: string;
   ssl: boolean;
   debug: string;
+  rede: boolean;
 }
 
 @Injectable()
@@ -61,6 +62,7 @@ export class ApiService {
         }
       );
     } else {
+      localStorage.setItem('rede', JSON.stringify(this.retorno.rede));
       localStorage.setItem('chamou', 'false');
       return null;
     }

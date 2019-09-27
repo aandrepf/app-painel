@@ -4,6 +4,7 @@
     <p class="spinner-state" *ngSwitchCase="1">aguarde, iniciando aplicação...</p>
     <p class="spinner-state" *ngSwitchCase="2">aguarde, conectando...</p>
     <p class="spinner-state" *ngSwitchCase="3">aguardando interação...</p>
+    <p class="spinner-state" *ngSwitchCase="6">aguardando interação...</p>
   </div>
 
   <!--STATES 2 e 3: ANIMAÇÃO INDICANDO SE ESTÁ CONECTADO OU NÃO-->
@@ -26,7 +27,7 @@
   <div class="col-sm-12 info-conectado-painel" *ngIf="isConectado !== null">
     <div class='wifi-signal'>
       <div class="wifi painel-icone {{ isConectado ? 'full' : 'loading' }}"></div>
-      <span class="version-info">1.5.1</span>
+      <span class="version-info">1.5.2</span>
     </div>
   </div>
 </div>
